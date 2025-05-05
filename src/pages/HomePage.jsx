@@ -15,7 +15,6 @@ const HomePage = () => {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Latest Videos</h1>
       <div className="home-videos">
         {videos.map(video => (
           <VideoCard key={video._id} video={video} />

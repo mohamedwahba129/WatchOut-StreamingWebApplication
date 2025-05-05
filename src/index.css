@@ -3,6 +3,7 @@ html, body, #root {
   margin: 0;
   display: flex;
   flex-direction: column;
+  background-color: #000000;
 }
 .App {
   flex: 1;
@@ -10,29 +11,85 @@ html, body, #root {
   flex-direction: column;
 }
 .navbar {
-  background-color: #282c34;
+  background-color: #000000;
   color: white;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+/* s*/
+.navbar-search input {
+  padding: 0.5rem;
+  border: 2px solid #3a3f4b;
+  border-radius: 20px;
+  width: 500px;
+  background-color: #2c2f38;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
 
+.navbar-search input::placeholder {
+  color: #aaa;
+}
+
+.navbar-search input:focus {
+  border-color: #b79578; /* Highlight the border on focus */
+}
+/* end of s*/
+.navbar a{
+color: white;
+  text-decoration: none;
+  
+
+}
+
+.navbar .navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .navbar-logo img{
+width: 20%;
+height: 12%;
+margin-right: 10px;
+float: left;
+
+}
 .navbar-links {
   list-style: none;
   display: flex;
   gap: 1rem;
 }
 
+.navbar-links li {
+  background-color: #282c34;
+  width: 6rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-links li:hover {
+  background-color: #3a3f4b; /* slightly lighter background */
+  transform: scale(1.05); /* slight zoom effect */
+}
+
 .navbar-links li a {
   color: white;
   text-decoration: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
 }
-
-.navbar-links li a:hover {
-  color: yellow; 
-}
-
 .footer {
   margin-top: auto;
   background-color: #282c34;
@@ -40,8 +97,15 @@ html, body, #root {
   padding: 1rem;
   text-align: center;
 }
+.home-videos {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 4 columns */
+  gap: 1rem; /* Space between videos */
+  padding: 1rem; 
+  
+}
 
 .video-homepage{
- width: 19%;
- height: 16%;
+ width: 100%;
+ height: 84%;
 }

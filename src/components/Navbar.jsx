@@ -1,10 +1,20 @@
 import React from 'react';
 
-
 function Navbar() {
   return (
     <nav className="navbar">
-      <div className="navbar-logo">WatchOut</div>
+      <a href='/'>
+        <div className="navbar-logo">
+          <img src='logo/logo.png' alt="WatchOut Logo" />
+          <h4>WatchOut</h4>
+        </div>
+      </a>
+
+
+      {/* <div className="navbar-search">
+        <input type="text" placeholder="Search..." />
+      </div> */}
+
       <ul className="navbar-links">
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
