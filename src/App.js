@@ -1,16 +1,19 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
+import VideoDetailsPage from './pages/VideoDetailsPage';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <Router>
       <Navbar />
-      <HomePage />
-      <Footer />
-    </div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/video/:id" element={<VideoDetailsPage />} />
+      </Routes>
+    </Router>
   );
 }
 
