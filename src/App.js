@@ -1,8 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import HomePage from './pages/HomePage';
-import VideoDetailsPage from './pages/VideoDetailsPage';
+import HomePage from './pages/HomePage'; // Your home page that displays videos
+import VideoDetailsPage from './pages/VideoDetailsPage'; // Your detailed video page
 import './App.css';
 
 function App() {
@@ -10,7 +10,10 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
+        {/* Home page route */}
         <Route path="/" element={<HomePage />} />
+        
+        {/* Video detail page route */}
         <Route path="/video/:id" element={<VideoDetailsPage />} />
       </Routes>
     </Router>

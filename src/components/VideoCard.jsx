@@ -1,51 +1,37 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 function VideoCard({ video }) {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const navigate = useNavigate(); // Initialize navigate for redirection
 
-  // Track whether the video is hovering
-  const [isHovering, setIsHovering] = useState(false);
-
-  // Play video preview on hover
-  useEffect(() => {
-    if (videoRef.current) {
-      if (isHovering && !isPlaying) {
-        videoRef.current.currentTime = 0; // Start from the beginning
-        videoRef.current.play(); // Play preview
-        setIsPlaying(true); // Update the state to playing
-      } else if (!isHovering && isPlaying) {
-        videoRef.current.pause(); // Pause preview
-        setIsPlaying(false); // Update the state to paused
-      }
-    }
-  }, [isHovering, isPlaying]); // Run effect when hover or play state changes
-
-  // Handle mouse enter
   const handleMouseEnter = () => {
-    setIsHovering(true); // Set hovering state to true
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0; // Start from the beginning
+      videoRef.current.play(); // Play preview
+    }
   };
 
-  // Handle mouse leave
   const handleMouseLeave = () => {
-    setIsHovering(false); // Set hovering state to false
+    if (videoRef.current) {
+      videoRef.current.pause(); // Pause preview
+    }
   };
 
   // Redirect to the video details page on click
   const handleClick = () => {
-    // Implement your navigation logic here
-    // Navigate to video details page
+    navigate(`/video/${video._id}`); // Redirect using the video ID
   };
 
   return (
-   <><div className="video-container" onClick={handleClick}>
+    <div className="video-container" onClick={handleClick}>
       <video
         className="video-homepage"
         ref={videoRef}
         src={video.videoUrl}
-        controls={false} // Remove default controls
-        onMouseEnter={handleMouseEnter} // Play on hover
-        onMouseLeave={handleMouseLeave} // Pause on hover out
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         muted
         width="100%"
         height="100%"
@@ -56,9 +42,7 @@ function VideoCard({ video }) {
         <h3 className="video-title">{video.title}</h3>
         <p className="video-description">{video.description}</p>
       </div>
-    <h1>HIiii</h1>
     </div>
-    </> 
   );
 }
 

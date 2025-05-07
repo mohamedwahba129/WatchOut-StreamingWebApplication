@@ -1,31 +1,26 @@
 import React from 'react';
+import { useParams } from 'react-router-dom'; // Import useParams to read route params
 
-const VideoDetailsPage = () => {
-  const video = {
-    title: "Sample Video",
-    description: "This is a sample video description.",
-    views: 12345,
-    likes: 678,
-    url: "https://www.example.com/sample-video.mp4",
+function VideoDetailsPage() {
+  const { id } = useParams(); // Retrieve the video ID from the URL
+
+  // For now, you can mock or fetch data based on the `id`
+  const videoData = {
+    _id: id,
+    title: 'Sample Video Title',
+    description: 'This is a detailed description of the video.',
+    videoUrl: 'videos/videoplayback.mp4', // Replace with actual video URL
   };
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-      <h1>{video.title}</h1>
-      <video
-        src={video.url}
-        controls
-        style={{ width: '100%', maxWidth: '800px', marginBottom: '20px' }}
-      ></video>
-      <p>{video.description}</p>
-      <p>
-        <strong>Views:</strong> {video.views}
-      </p>
-      <p>
-        <strong>Likes:</strong> {video.likes}
-      </p>
+    <div className="video-details-page">
+      <h2>{videoData.title}</h2>
+      <video controls width="100%" height="auto" src={videoData.videoUrl}>
+        Your browser does not support the video tag.
+      </video>
+      <p>{videoData.description}</p>
     </div>
   );
-};
+}
 
 export default VideoDetailsPage;
