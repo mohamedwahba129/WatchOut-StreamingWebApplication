@@ -13,13 +13,28 @@ function VideoDetailsPage() {
   };
 
   return (
-    <div className="video-details-page">
+   <>
+   <div className="video-page-container">
+    <div className="column">
+   <div className="video-view-page">
       <h2>{videoData.title}</h2>
-      <video controls width="100%" height="auto" src={videoData.videoUrl}>
+      <video controls width="100%" height="auto" src="videos/videoplayback.mp4" type="video/mp4"> 
         Your browser does not support the video tag.
       </video>
       <p>{videoData.description}</p>
     </div>
+
+
+
+    <div className="side-videos">
+    <h2>{videoData.title}</h2>
+      <video controls width="100%" height="auto" src="videos/videoplayback.mp4" type="video/mp4"> 
+        Your browser does not support the video tag.
+      </video>
+      <p>{videoData.description}</p>
+    </div></div></div>
+    </>
+   
   );
 }
 

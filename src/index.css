@@ -162,3 +162,24 @@ float: left;
     width:90%/* 1 column on mobile */
   }
 }
+
+
+.video-view-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  width: 60%;
+}
+.side-videos{
+ width: 30%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+.video-page-container {
+  display: flex;
+  flex-direction: column;
+  
+}
